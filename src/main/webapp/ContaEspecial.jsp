@@ -1,3 +1,4 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
@@ -8,6 +9,8 @@
 </head>
 
 <body>
+
+
 <nav id="menu">
     <ul>
         <li><a href="ContaPoupanca.jsp">Conta Poupanca </a></li>
@@ -50,50 +53,30 @@
 <br/>
 <div id="output" align="center">${saida}</div>
 <br />
-<div class="container" id="especialTable" align="center" style="display: none;">
-    <table id="tableEspecial">
-        <thead>
-            <tr>
-                <th>#ID</th>
-                <th>Nome</th>
-                <th>Saldo</th>
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
-</div>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const listarButton = document.getElementById('EnviarListar');
-        listarButton.addEventListener('click', function(event) {
-            event.preventDefault(); // Impede o envio do formulário e a recarga da página
+<c:if test="${not empty especial}">
+    <div align="center">
+        <table>
+            <thead>  
+                <tr>
+                    <th>#ID</th>
+                    <th>Nome</th>
+                    <th>Saldo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>${especial.getId()}</td>
+                    <td>${especial.getNome()}</td> 
+                    <td>${especial.getSaldo()}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</c:if>
 
-            const especialTableDiv = document.getElementById('especialTable');
-            especialTableDiv.style.display = 'block'; // Mostra a tabela
 
-            const tbody = document.querySelector('#tableEspecial tbody');
 
-            fetch('dadosEspecial') // Rota que retorna os dados da conta especial em JSON
-                .then(response => response.json())
-                .then(data => {
-                    // Limpa a tabela antes de preencher com os novos dados
-                    tbody.innerHTML = '';
 
-                    // Adiciona os dados da conta especial na tabela
-                    data.forEach(especial => {
-                        const row = document.createElement('tr');
-                        row.innerHTML = `
-                            <td>${especial.id}</td>
-                            <td>${especial.cliente}</td>
-                            <td>${especial.saldo}</td>
-                        `;
-                        tbody.appendChild(row);
-                    });
-                })
-                .catch(error => console.error('Erro ao obter os dados da conta especial:', error));
-        });
-    });
-</script>
+
 </body>
 </html>

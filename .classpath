@@ -14,5 +14,11 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="C:/Users/Amos/eclipse-workspace/AULA8_POO_EXE1/src/main/webapp/WEB-INF/lib/lombok-1.18.24.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Amos/LIB/jakarta.annotation-api-2.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Amos/LIB/jakarta.el-api-4.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Amos/LIB/jakarta.servlet.jsp.jstl-3.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Amos/LIB/jakarta.servlet.jsp.jstl-api-3.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Amos/LIB/jakarta.xml.bind-api-4.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Amos/LIB/lombok-1.18.26.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
