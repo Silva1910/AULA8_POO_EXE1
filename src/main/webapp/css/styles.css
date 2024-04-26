@@ -91,5 +91,18 @@ select:focus {
     border: 3px solid black;
 }
 
+#output {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 15px;
+    background-color: #fff;
+    border: 3px solid black;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #333;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+}
+
 
 

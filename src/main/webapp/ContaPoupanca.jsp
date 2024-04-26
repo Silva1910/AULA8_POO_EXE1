@@ -1,4 +1,4 @@
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -16,7 +16,7 @@
 </nav>
 
 <body>
- 
+
 	<div class="container" align="center">
 		<form action="ContaPoupanca" method="post">
 			<p class="title">
@@ -64,56 +64,30 @@
 	<br />
 	<div id="output" align="center">${saida}</div>
 	<br />
+<c:if test="${not empty poupanca}">
+    <div align="center">
+        <table>
+            <thead>  
+                <tr>
+                    <th>#ID</th>
+                    <th>Nome</th>
+                    <th>Saldo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>${poupanca.getId()}</td>
+                    <td>${poupanca.getCliente()}</td> <!-- Alterado para getCliente() -->
+                    <td>${poupanca.getSaldo()}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</c:if>
 
-	<!-- No seu HTML -->
-	<div id="dynamicOutput" align="center"></div>
 
-	<br />
-	<div class="container" id="poupancaTable" align="center" style="display: none;">
-		<table id="tablePoupanca">
-			<thead>
-				<tr>
-					<th>#ID</th>
-					<th>Nome</th>
-					<th>Saldo</th>
-				</tr>
-			</thead>
-			<tbody>
-				
-			</tbody>
-		</table>
-	</div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const listarButton = document.getElementById('EnviarListar');
-        listarButton.addEventListener('click', function(event) {
-            event.preventDefault(); // Impede o envio do formulário e a recarga da página
-
-            const poupancaTableDiv = document.getElementById('poupancaTable');
-            poupancaTableDiv.style.display = 'block'; // Mostra a tabela
-
-            const tbody = document.querySelector('#tablePoupanca tbody');
-
-            fetch('ContaPoupanca') // Solicita os dados da conta poupança ao servlet
-                .then(response => response.json())
-                .then(data => {
-                    // Limpa a tabela antes de preencher com os novos dados
-                    tbody.innerHTML = '';
-
-                    // Adiciona os dados da conta poupança na tabela
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${data.id}</td>
-                        <td>${data.cliente}</td>
-                        <td>${data.saldo}</td>
-                    `;
-                    tbody.appendChild(row);
-                })
-                .catch(error => console.error('Erro ao obter os dados da conta poupança:', error));
-        });
-    });
-</script>
+	
 
 
 </body>

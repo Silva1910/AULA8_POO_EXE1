@@ -66,13 +66,14 @@
             <tbody>
                 <tr>
                     <td>${especial.getId()}</td>
-                    <td>${especial.getNome()}</td> 
+                    <td>${especial.getCliente()}</td> <!-- Alterado para getCliente() -->
                     <td>${especial.getSaldo()}</td>
                 </tr>
             </tbody>
         </table>
     </div>
 </c:if>
+
 
 
 
